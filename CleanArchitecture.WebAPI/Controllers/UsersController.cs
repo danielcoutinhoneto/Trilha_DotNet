@@ -15,6 +15,12 @@ public class UsersController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpGet]
+    public string Get(CancellationToken cancellationToken)
+    {
+        return "Hello World Get";
+    }
+
     [HttpPost]
     public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request,
                                                          CancellationToken cancellationToken)
