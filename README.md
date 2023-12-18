@@ -5,5 +5,5 @@
 
 Neste repositório, estou iniciando do zero a estrutura Clean Architecture em ASP.NET Core, que será a base dos projetos da Trilha .Net da Residência de Software - TIC18.
 
-## No decorrer do estudo, serão implementado novas funcionalidades nesse projeto.
+## No decorrer do estudo, serão implementadas novas funcionalidades nesse projeto.
 
