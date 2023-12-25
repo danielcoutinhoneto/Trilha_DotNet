@@ -1,4 +1,4 @@
-using ResTIConnect.Domain.Common;
+using ResTIConnect.Domain.Entities;
 
 namespace ResTIConnect.Domain.Interfaces;
 
