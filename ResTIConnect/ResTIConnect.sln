@@ -9,15 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Persistence", "Infrastructure\ResTIConnect.Persistence.csproj", "{7F4448E8-161D-407E-A975-0DC2726806BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.API", "Presentation\ResTIConnect.API.csproj", "{ED9B7D7B-4E1E-4C6A-A1AC-495CA84CE9F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.WebAPI", "Presentation\ResTIConnect.WebAPI.csproj", "{ED9B7D7B-4E1E-4C6A-A1AC-495CA84CE9F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{60459F17-5BF2-4198-ABA6-E2D2AF478569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +33,8 @@ Global
 		{ED9B7D7B-4E1E-4C6A-A1AC-495CA84CE9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED9B7D7B-4E1E-4C6A-A1AC-495CA84CE9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED9B7D7B-4E1E-4C6A-A1AC-495CA84CE9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

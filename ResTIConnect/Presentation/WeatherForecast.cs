@@ -1,4 +1,4 @@
-namespace ResTIConnect.API;
+namespace ResTIConnect.WebAPI;
 
 public class WeatherForecast
 {
