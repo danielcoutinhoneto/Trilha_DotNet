@@ -1,12 +1,13 @@
 using ResTIConnect.Persistence.Context;
 using ResTIConnect.Persistence;
 using ResTIConnect.Application.Services;
+using ResTIConnect.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
 builder.Services.ConfigureApplicationApp();
-// Add services to the container.
+builder.Services.ConfigureCorsPolicy();
 
 builder.Services.AddControllers();
 
@@ -19,6 +20,8 @@ CreateDatabase(app);
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseCors();
 app.MapControllers();
 app.Run();
 

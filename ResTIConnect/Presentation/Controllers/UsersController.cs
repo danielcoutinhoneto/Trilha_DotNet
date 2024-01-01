@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ResTIConnect.Application.UseCases.CreateUser;
+using ResTIConnect.Application.UseCases.GetAllUser;
 
 namespace ResTIConnect.WebAPI.Controllers;
 
@@ -8,27 +9,26 @@ namespace ResTIConnect.WebAPI.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    private readonly IMediator _mediator;
+    IMediator _mediator;
 
     public UsersController(IMediator mediator)
     {
         _mediator = mediator;
     }
 
-    [HttpPost]
-    public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request,
-                                                            CancellationToken cancellationToken)
+    [HttpGet]
+    public async Task<ActionResult<List<GetAllUserResponse>>>
+        GetAll(CancellationToken cancellationToken)
     {
-        // var validator = new CreateUserValidator();
-        //var validationResult = await validator.ValidateAsync(request);
-
-        //if (!validationResult.IsValid)
-        // {
-        //    return BadRequest(validationResult.Errors);
-        //}
-
-        var response = await _mediator.Send(request, cancellationToken);
+        var response = await _mediator.Send(new GetAllUserResponse(), cancellationToken);
         return Ok(response);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Create(CreateUserRequest request)
+    {
+        var useId = await _mediator.Send(request);
+        return Ok(useId);
     }
 }
 
