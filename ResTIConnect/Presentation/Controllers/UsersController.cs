@@ -17,10 +17,10 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<GetAllUserResponse>>>
-        GetAll(CancellationToken cancellationToken)
+    public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
     {
-        var response = await _mediator.Send(new GetAllUserResponse(), cancellationToken);
+        var request = new GetAllUserRequest("example@email.com", "Example Name"); 
+        var response = await _mediator.Send(request, cancellationToken);
         return Ok(response);
     }
 
