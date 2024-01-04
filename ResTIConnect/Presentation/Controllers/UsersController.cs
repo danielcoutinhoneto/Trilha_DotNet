@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ResTIConnect.Application.UseCases.CreateUser;
+using ResTIConnect.Application.UseCases.DeleteUser;
 using ResTIConnect.Application.UseCases.GetAllUser;
 using ResTIConnect.Application.UseCases.UpdateUser;
 
@@ -40,6 +41,19 @@ public class UsersController : ControllerBase
             return BadRequest();
 
         var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(Guid? id, 
+                                    CancellationToken cancellationToken)
+    {
+        if (id is null)
+            return BadRequest();
+
+        var deleteUserRequest = new DeleteUserRequest(id.Value);
+
+        var response = await _mediator.Send(deleteUserRequest, cancellationToken);
         return Ok(response);
     }
 }
