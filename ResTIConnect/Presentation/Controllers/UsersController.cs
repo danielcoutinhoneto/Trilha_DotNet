@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ResTIConnect.Application.UseCases.CreateUser;
 using ResTIConnect.Application.UseCases.GetAllUser;
+using ResTIConnect.Application.UseCases.UpdateUser;
 
 namespace ResTIConnect.WebAPI.Controllers;
 
@@ -29,6 +30,17 @@ public class UsersController : ControllerBase
     {
         var useId = await _mediator.Send(request);
         return Ok(useId);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<UpdateUserResponse>>
+        Update(Guid id, UpdateUserRequest request, CancellationToken cancellationToken)
+    {
+        if (id != request.Id)
+            return BadRequest();
+
+        var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
     }
 }
 
